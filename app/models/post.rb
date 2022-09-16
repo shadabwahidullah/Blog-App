@@ -3,9 +3,9 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
 
-  validates :title, presence: true, length: {in: 1..250}
-  validates :comments_counter, numericality: {integer: true, greater_than_or_equal_to: 0}
-  validates :likes_counter, numericality: {integer:true, greater_than_or_equal_to: 0}
+  validates :title, presence: true, length: { in: 1..250 }
+  validates :comments_counter, numericality: { integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { integer: true, greater_than_or_equal_to: 0 }
 
   def update_posts_counter
     author.increment!(:posts_counter)
