@@ -7,7 +7,5 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show
-    
-  end
+  def show; end
 end
