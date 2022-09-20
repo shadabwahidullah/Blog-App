@@ -1,8 +1,8 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET #index' do
-    before(:each){get users_path}
+    before(:each) { get users_path }
     it 'is success ' do
       expect(response).to have_http_status(:ok)
     end
@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET #show' do
-    before(:each){get user_path id:2}
+    before(:each) { get user_path id: 2 }
     it 'is success ' do
       expect(response).to have_http_status(:ok)
     end
