@@ -9,6 +9,5 @@ class UsersController < ApplicationController
 
   def show
     puts params
-    @users = User.find(params[:id])
   end
 end
