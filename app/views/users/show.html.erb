@@ -11,6 +11,28 @@
   </head>
 
   <body>
-   <h1>this should show a user </h1>
+   <%= render partial: 'shared/user', locals: {user: @user}%>
+   <div
+      style="
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          border: 2px solid blue;
+          border-radius: 5px;
+          height: 250px;
+          margin: 10px 0;
+          padding: 10px;
+      "
+   >
+      <h1>Bio</h1>
+      <p>
+        <%= @user.bio%>
+      </p>
+   </div>
+   <div style="display: flex; flex-direction: column; row-gap: 5px;">
+    <% @user.last_three_posts.each do |post|%>
+      <%= render partial: 'shared/post', locals: {post: post}%>
+    <% end %>
+   </div>
   </body>
 </html>
