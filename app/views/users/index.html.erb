@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-   <h1>this should list all users </h1>
+    <section>
+      <div class="users_container" style="display: flex; flex-direction: column; row-gap:10px;">
+        <% @users.each do |user| %>
+          <%= render partial: 'shared/user', locals: {user: user}%>
+        <% end %>
+      </div>
+    </section>
   </body>
 </html>
