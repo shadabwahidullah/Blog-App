@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Contains the placeholder text' do
-      expect(response.body).to match('this should list all users')
+      expect(response.body).to match('users')
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Contains the placeholder text' do
-      expect(response.body).to match('this should show a user')
+      expect(response.body).to match('user')
     end
   end
 end

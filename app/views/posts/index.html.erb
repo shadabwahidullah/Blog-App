@@ -11,6 +11,14 @@
   </head>
 
   <body>
-   <h1>this should list all Posts </h1>
+  <div 
+    style="display: flex; flex-direction: column; row-gap: 10px;"
+  >
+    <%= render partial: 'shared/user', locals: {user: @user}%>
+    <%@posts.each do |post|%>
+        <%=render partial: 'shared/post', locals:{user: @user, post: post}%>
+        <%=render partial: 'shared/comment', locals:{comments: post.five_recent_comments}%>
+    <% end %>
+  </div>
   </body>
 </html>

@@ -13,7 +13,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Contains the placeholder text' do
-      expect(response.body).to match('this should list all Posts')
+      expect(response.body).to match('Posts')
     end
   end
 

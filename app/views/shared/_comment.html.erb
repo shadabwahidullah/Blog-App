@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Users</title>
+    <title>User</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <section>
-      <div class="users_container" style="display: flex; flex-direction: column; row-gap:10px;">
-        <% @users.each do |user| %>
-          <%= render partial: 'shared/user', locals: {user: user}%>
-        <% end %>
-      </div>
-    </section>
+    <div style="display: flex; flex: 1; flex-direction: column; border: 2px solid lightblue; padding: 15px;">
+      <% comments.each do |comment|%>
+        <h3><%=User.find(comment.author_id).name%>: <%= comment.text%></h3>
+      <% end%>
+    </div>
   </body>
 </html>
