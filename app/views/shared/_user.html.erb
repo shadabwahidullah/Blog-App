@@ -11,31 +11,33 @@
   </head>
 
   <body>
+    <%= link_to user_path(user) do%>
       <div class="user" 
           style="display: flex;
                 column-gap: 5px;
                 ">
-      <img
-        class="user__image"
-        style="width: 200px;
-                height: 250px;
-                background-position: center center;
-                background-repeat: no-repeat;
-                border: 2px solid lightgreen
-                "
-        src=<%= user.photo%>
-      />
-      <div class="user__details" 
-            style="display: flex;
-                  flex: 1;
-                  justify-content: space-around;
-                  border: 2px solid blue;
-                  border-radius: 5px;
+        <img
+          class="user__image"
+          style="width: 200px;
                   height: 250px;
-                  ">
-        <h1 style="font-size: 50px;"><%= user.name%></h1>
-        <h3 style="justify-self: bottom; margin-top: 200px">number of posts: <%= user.posts_counter%></h3>
+                  background-position: center center;
+                  background-repeat: no-repeat;
+                  border: 2px solid lightgreen
+                  "
+          src=<%= user.photo%>
+        />
+        <div class="user__details" 
+              style="display: flex;
+                    flex: 1;
+                    justify-content: space-around;
+                    border: 2px solid blue;
+                    border-radius: 5px;
+                    height: 250px;
+                    ">
+          <h1 style="font-size: 50px;"><%= user.name%></h1>
+          <h3 style="justify-self: bottom; margin-top: 200px">number of posts: <%= user.posts_counter%></h3>
+        </div>
       </div>
-    </div>
+    <% end %>
   </body>
 </html>
