@@ -16,7 +16,7 @@
   >
     <%= render partial: 'shared/user', locals: {user: @user}%>
     <%@posts.each do |post|%>
-        <%=render partial: 'shared/post', locals:{post: post}%>
+        <%=render partial: 'shared/post', locals:{user: @user, post: post}%>
         <%=render partial: 'shared/comment', locals:{comments: post.five_recent_comments}%>
     <% end %>
   </div>
