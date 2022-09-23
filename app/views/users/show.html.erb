@@ -31,7 +31,7 @@
    </div>
    <div style="display: flex; flex-direction: column; row-gap: 5px;">
     <% @user.last_three_posts.each do |post|%>
-      <%= render partial: 'shared/post', locals: {post: post}%>
+      <%= render partial: 'shared/post', locals: {user: @user, post: post}%>
     <% end %>
    </div>
   </body>
