@@ -17,6 +17,7 @@ class PostsController < ApplicationController
       format.html do
         if(@post.save)
           flash[:success] = 'Post saved'
+          @post.update_posts_counter
           redirect_to user_posts_url(current_user)
         else
           flash.now[:error] = 'Error: post can not be saved'
