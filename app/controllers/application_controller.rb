@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  def current_user 
-    current_user = User.find(3)
+  def current_user
+    User.find(3)
   end
 end

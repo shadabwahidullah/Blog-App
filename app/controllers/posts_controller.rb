@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.where(author_id: params[:user_id])
     @user = User.find(params[:user_id])
@@ -15,7 +14,7 @@ class PostsController < ApplicationController
     @post.author_id = params[:user_id]
     respond_to do |format|
       format.html do
-        if(@post.save)
+        if @post.save
           flash[:success] = 'Post saved'
           @post.update_posts_counter
           redirect_to user_posts_url(current_user)
