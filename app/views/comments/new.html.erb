@@ -1,0 +1,10 @@
+<h1>this is a page for creating new comments</h1>
+<%= form_with model: @comment, url: post_comments_url( @post, @comment), method: :post do |form| %>
+  <div>
+    <%= form.label :text%>
+    <%= form.text_field :text%>
+  </div>
+  <div>
+    <%= form.submit "Create a new comment"%>
+  </div>
+<%end%>
