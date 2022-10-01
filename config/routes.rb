@@ -11,4 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
+  resources :posts do
+    resources :likes, only: [:create]
+  end
 end

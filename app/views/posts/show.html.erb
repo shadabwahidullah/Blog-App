@@ -30,11 +30,16 @@
         <%=@post.text%>
       </p>
     </div>
-     <div style='display:flex; flex-direction: column; align-items: center'>
-        <%= link_to new_post_comment_path(@post) do %>
-          <button style="width: 200px; height: 30px; margin: 20px 0;"> add comment </button>
-        <% end%>
-      </div>
+    <div style='display:flex; flex-direction: column; align-items: center'>
+      <%= link_to new_post_comment_path(@post) do %>
+        <button style="width: 200px; height: 30px; margin: 20px 0;"> add comment </button>
+      <% end%>
+    </div>
+    <div style='display:flex; flex-direction: column; align-items: center'>
+      <%= button_to post_likes_path( @post), method: 'post' do %>
+        <%= @post.likes.size %> like
+      <% end %>
+    </div>
     <div style="margin-top: 15px;">
       <%= render partial: 'shared/comment', locals: {comments: @comments}%>
     </div>
