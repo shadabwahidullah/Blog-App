@@ -10,5 +10,9 @@ RSpec.describe 'Users index page', js: true , type: :system do
       visit users_path
       expect(page).to have_content('Ahmad')
     end
+    it 'loads the user picture' do
+      visit users_path
+      expect(page).to have_xpath('//img[@src="https://via.placeholder.com/300"]')
+    end
   end
 end
