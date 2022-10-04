@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= link_to user_path(user) do%>
+    <%= link_to user_path(user), id: user.id do%>
       <div class="user" 
           style="display: flex;
                 column-gap: 5px;

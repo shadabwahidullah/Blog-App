@@ -21,5 +21,10 @@ RSpec.describe 'Users index page', js: true , type: :system do
       visit users_path
       expect(page).to have_content('number of posts: 3')
     end
+    it 'redirects to users show page' do
+      visit users_path
+      click_on(@user.id)
+      expect(page).to have_current_path(user_path(@user)) 
+    end
   end
 end
