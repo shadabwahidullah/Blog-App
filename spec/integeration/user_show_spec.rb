@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users index page', js: true , type: :system do
-  describe 'shows all the users' do
+  describe 'show a user profile' do
     before(:each) do
       @user = User.create(name: 'Ahmad', photo: 'https://via.placeholder.com/300', bio: 'web Developer from Afghanistan')
       @post1 = Post.create(title: 'Rspec test 1', text: 'rspec test for post', author: @user)
@@ -19,6 +19,11 @@ RSpec.describe 'Users index page', js: true , type: :system do
     it 'I can see a button to see all the posts' do
       visit user_path(@user)
       expect(page).to have_selector(:link_or_button, 'See all posts')
+    end
+    it 'When I click on a post it redirects me to that post show page' do
+      visit user_path(@user)
+      click_on("post:#{@post1.id}")
+      expect(page).to have_current_path(user_post_path(@user, @post1))
     end
   end
 end

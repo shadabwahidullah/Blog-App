@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= link_to user_post_path( user, post) do%>
+    <%= link_to user_post_path( user, post), id: "post:#{post.id}" do%>
       <div class="user" 
           style="display: flex;
                 flex-direction: column;
