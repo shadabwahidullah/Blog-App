@@ -16,6 +16,14 @@ RSpec.describe 'Users index page', js: true , type: :system do
       visit user_path(@user)
       expect(page).to have_content(@user.name)
     end
+    it 'I can see the user bio' do
+      visit user_path(@user)
+      expect(page).to have_content(@user.bio)
+    end
+    it 'I can see the number of posts the user has written.' do
+      visit user_path(@user)
+      expect(page).to have_content(@user.posts_counter)
+    end
     it 'I can see a button to see all the posts' do
       visit user_path(@user)
       expect(page).to have_selector(:link_or_button, 'See all posts')
