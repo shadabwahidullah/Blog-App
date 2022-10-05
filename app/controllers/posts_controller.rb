@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(author_id: params[:user_id])
+    @posts = Post.includes(:comments).where(author_id: params[:user_id])
     @user = User.find(params[:user_id])
   end
 
@@ -16,7 +16,6 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = 'Post saved'
-          @post.update_posts_counter
           redirect_to user_posts_url(current_user)
         else
           flash.now[:error] = 'Error: post can not be saved'

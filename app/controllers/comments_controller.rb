@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
       format.html do
         if @comment.save
           flash[:success] = 'Comment saved'
-          @comment.update_comments_counter
           redirect_to user_post_url(current_user, @post)
         else
           flash.now[:error] = 'there was an error while saving the comment'
