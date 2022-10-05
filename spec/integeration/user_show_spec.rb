@@ -12,5 +12,9 @@ RSpec.describe 'Users index page', js: true , type: :system do
       visit user_path(@user)
       expect(page).to have_xpath('//img[@src="https://via.placeholder.com/300"]')
     end
+    it 'I can see user\'s username\\' do
+      visit user_path(@user)
+      expect(page).to have_content(@user.name)
+    end
   end
 end
