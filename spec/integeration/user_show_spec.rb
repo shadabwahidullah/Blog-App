@@ -16,5 +16,9 @@ RSpec.describe 'Users index page', js: true , type: :system do
       visit user_path(@user)
       expect(page).to have_content(@user.name)
     end
+    it 'I can see a button to see all the posts' do
+      visit user_path(@user)
+      expect(page).to have_selector(:link_or_button, 'See all posts')
+    end
   end
 end
