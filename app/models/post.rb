@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
 
   after_save :update_posts_counter
-  
+
   def update_posts_counter
     author.increment!(:posts_counter)
   end

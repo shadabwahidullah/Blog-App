@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe 'Users index page', js: true , type: :system do
+RSpec.describe 'Users index page', js: true, type: :system do
   describe 'shows all the users' do
     before(:each) do
-      @user = User.create(name: 'Ahmad', photo: 'https://via.placeholder.com/300', bio: 'web Developer from Afghanistan')
+      @user = User.create(name: 'Ahmad', photo: 'https://via.placeholder.com/300',
+                          bio: 'web Developer from Afghanistan')
       @post1 = Post.create(title: 'Rspec test 1', text: 'rspec test for post', author: @user)
       @post2 = Post.create(title: 'Rspec test 2', text: 'rspec test for post', author: @user)
       @post3 = Post.create(title: 'Rspec test 3', text: 'this is the body of rspec test for post', author: @user)
-      @comment1 = Comment.create(author: @user, post: @post1, text: 'this is the first comment' )
-      @comment2 = Comment.create(author: @user, post: @post1, text: 'this is the second comment' )
-      @comment3 = Comment.create(author: @user, post: @post1, text: 'this is the third comment' )
+      @comment1 = Comment.create(author: @user, post: @post1, text: 'this is the first comment')
+      @comment2 = Comment.create(author: @user, post: @post1, text: 'this is the second comment')
+      @comment3 = Comment.create(author: @user, post: @post1, text: 'this is the third comment')
       @like1 = Like.create(author: @user, post: @post1)
       @like2 = Like.create(author: @user, post: @post1)
     end
@@ -52,7 +53,7 @@ RSpec.describe 'Users index page', js: true , type: :system do
     it 'When I click on a post, it redirects me to that posts show page' do
       visit user_posts_path(@user)
       click_link("post:#{@post2.id}")
-      expect(page).to have_current_path(user_post_path(@user, @post))
+      expect(page).to have_current_path(user_post_path(@user, @post2))
     end
   end
 end

@@ -7,7 +7,6 @@ RSpec.describe Like, type: :model do
     post = Post.create(author: user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
                        likes_counter: 0)
     like = Like.create(author: user, post: post)
-    like.update_likes_counter
 
     expect(post.likes_counter).to be(1)
   end

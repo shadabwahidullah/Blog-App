@@ -6,7 +6,7 @@ RSpec.describe 'Users', type: :request do
       @user = User.create(name: 'Ahmad', photo: 'sodome/png', bio: 'web Developer from Ethiopia')
       @post = Post.create(author: @user, title: 'test', text: 'A test post')
       @post2 = Post.create(author: @user, title: 'test2', text: 'A test post')
-      get user_posts_path user_id:@user
+      get user_posts_path user_id: @user
     end
 
     it 'is success ' do
@@ -26,7 +26,7 @@ RSpec.describe 'Users', type: :request do
     before(:each) do
       @user = User.create(name: 'John', photo: 'sodome/png', bio: 'web Developer from Ethiopia')
       @post = Post.create(author: @user, title: 'test', text: 'A test post')
-      get user_post_path user_id:@user, id: @post
+      get user_post_path user_id: @user, id: @post
     end
 
     it 'is success ' do
