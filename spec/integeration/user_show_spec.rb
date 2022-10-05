@@ -25,5 +25,10 @@ RSpec.describe 'Users index page', js: true , type: :system do
       click_on("post:#{@post1.id}")
       expect(page).to have_current_path(user_post_path(@user, @post1))
     end
+    it 'When I click on see all posts it redirects me to users post index page' do
+      visit user_path(@user)
+      click_button('See all posts')
+      expect(page).to have_current_path(user_posts_path(@user))
+    end
   end
 end
